@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Наборщик слов
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{{ static('css', 'index.css') }}">
+{% endblock %}
+
+{% block body %}
+         <div class="main_table_row">
+              {% if is_authorized %}
+                  <div>
+                    <p><a href="/new_game" class="main-menu control">{{ tc_button_texts['new_game'] }}</a></p>
+                    <p><a href="/join_game" class="main-menu control">{{ tc_button_texts['join_game'] }}</a></p>
+                    <p><a href="/rate" class="main-menu control">{{ tc_button_texts['rating'] }}</a></p>
+                  </div>
+              {% else %}
+                  <div>
+                    <p><a href="/login" class="main-menu control">{{ tc_button_texts['sign_in'] }}</a></p>
+                    <p><a href="/sing_up" class="main-menu control">{{ tc_button_texts['sign_up'] }}</a></p>
+                  </div>
+              {% endif %}
+         </div>
+{% endblock %}
